@@ -2739,7 +2739,8 @@ begin
     while Assigned(Child) do
     begin
       TSVGUse(Child).Construct;
-      Child := SVG.FindByType(TSVGUse);
+      //Child := SVG.FindByType(TSVGUse); - infinite loop was here
+      Child := SVG.FindByType(TSVGUse, Child);
     end;
   end;
 end;
